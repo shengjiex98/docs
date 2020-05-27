@@ -11,22 +11,22 @@ cp  ./SSS_main.txt  <filename>.txt
 
 ```
 
-The syntax above is fairly straight forward: both are running an application (called an _executable_ in the context of linux), 
+The syntax above is fairly straight forward: both are calling an application (called an _executable_ in the context of linux), 
 then we give the application a list of options (called _arguments_) separated by one or more white spaces. The application is always
 the first thing in a line. Here `../RDP/RDP.out` is an application that "we" wrote and thus must be specified with a path to
 itself, while `cp` (short for "copy") is an application that the system provides us as a utility, so no need to provide its path.
 
-The order by which we give an application its argument is purely dependent on the application itself. I.e. it is defined, within the
-application code, and there's generally no way for us to change the ordering of things except for changing the source code directly.
-Here we have the comments above each line to indicates each argument (such as "Coord", "Channel", etc.). Note that here **we are not
-telling the application which argument is which**. Instead we are just **reminding ourserves** which argument corresponds to which
-location, so that we don't have to refer back to the application itself everytime.
+The order by which we give an application its argument is purely dependent on the application itself. I.e. it is defined within the
+application code, and there's generally no way for us to change the ordering of arguments except for changing the source code of the
+application itself. Here we have the comments above each line indicating which argument that we are providing ("Coord", "Channel", etc.).
+Note that these comments are not giving instructions to the application about which argument is which, but to simply remind ourselves 
+which argument is at what position, so removing these comments won't affect the functionality of this script or the application.
 
 When referencing any file—either an _executable_ (as an application) or a normal file (as an argument for an application)—we often use
-"." and ".." to indicate relative paths, so that we don't have to type the whole path out (e.g., we can use "../images" instead of
-"/not_backed_up/oj287/images"). The two symbols for relative paths are:
+`.` and `..` to indicate relative paths, so that we don't have to type the whole path out (e.g., we can use `../images` instead of
+`/not_backed_up/oj287/images`). The two symbols for relative paths are:
 
-* `..`: indicates going back to the parent folder
-* `.` : indicates the current folder. We use `.` to reduce the ambiguity when refering to an executable/normal file. For example,
+* `..` indicates going back to the parent folder
+* `.` indicates the current folder. We use `.` to reduce the ambiguity when refering to an executable/normal file. For example,
 we used the system utility `cp` above to copy a file. But what if we want to reference a file, in the current folder, that also has
-the name `cp`? Then we will use `./cp` to make sure we are referencing the correct file.
+the name `cp`? Then we will use `./cp` to make clear we are referencing the file in the current folder.
