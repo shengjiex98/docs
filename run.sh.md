@@ -30,3 +30,8 @@ When referencing any file—either an _executable_ (as an application) or a norm
 * `.` indicates the current folder. We use `.` to reduce the ambiguity when refering to an executable/normal file. For example,
 we used the system utility `cp` above to copy a file. But what if we want to reference a file, in the current folder, that also has
 the name `cp`? Then we will use `./cp` to make clear we are referencing the file in the current folder.
+
+Following the discussion above, when we want to run our customized `run.sh` script, it is important that we add the `.`, i.e. we use
+`./run.sh` instead of `run.sh`. This is because when we call an application, the system goes to a set of locations where applications
+are often installed to look for the application we call. Since our `run.sh` executable is not part of the system, it cannot find it
+unless we provide an explicit path (like what we did when we called `RDP.out`).
